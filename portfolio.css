@@ -1,14 +1,14 @@
 body,html{
-    
+    background-color:rgb(253, 253, 236);
     height:100%;
 }
 *{
-    box-sizing: border-box;
+    box-sizing:border-box;
     padding: 5px;
 }
 
 .bg-img{
-    background-image: url('assets/profile.jpeg');
+    background-image: url('assets/vitprofile.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     filter: blur(4px);
@@ -35,7 +35,7 @@ body,html{
     overflow: hidden;
     position: relative;
     background-color: black;
-    width:120%;
+    width:102%;
     bottom: 0;
 }
 
@@ -68,7 +68,8 @@ body,html{
     vertical-align: auto;
     grid-template-columns: 600px;
     justify-content: space-evenly;
-    margin-right: 50px;
+    margin-left: 40px;
+    margin-right: 30px;
     
 
 }

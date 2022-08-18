@@ -7,26 +7,39 @@
         <meta NAME="viewport" content= "width=device-width">
         <link rel='stylesheet' href="form.css" type="text/css">
         
-        <h1 align="'center">Job Profile</h1>
+        <h1>Jobify</h1>
         
        
     </head>
+    <script>
+        function validateForm(){
+            // alert("Hello!!");
+            var fname = document.myform.fname.value;
+            var lname = document.myform.lname.value;
+            if (fname==null || lname==null || fname=="" || lname==""){
+                alert("Name fields can't be blank");
+                fname.focus();
+                return false;
+            }
+           
+        }
+    </script>
    
     <body>
         <div class="card">
-            <form align="center" action="#main">
+            <form align="center" method="post" name="myform" action="#main" onsubmit = "return validateForm()">
                 <label for="fname">First Name</label>
-                <input type="text" id="'fname">
+                <input type="text" name="fname" id="fname">
                 <br><br>
                 <label for="lname">Last Name</label>
-                <input type="text" id="lname">
+                <input type="text" name="lname" id="lname">
                 <br><br>
                 <label for="dob">Date of Birth</label>
                 <input type="date" id="'dob">
                 <br>
                 <br>
                 <label for="gryear">GraduationYear</label>
-                <input type="month" id="gryear">
+                <input type="month" name="gryr" id="gryear" min="2010-01" max="2024-12" required>
                 <br><br>
                 <label for="fstudy">Study Field</label>
                 <select name="field" id="fstudy">

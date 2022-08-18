@@ -22,3 +22,8 @@ input[type=submit] {
 body{
     padding-left: 30%;
 }
+
+h1{
+    text-align: center;
+    margin-right: 60%;
+}

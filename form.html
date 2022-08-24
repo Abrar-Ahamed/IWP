@@ -16,11 +16,57 @@
             // alert("Hello!!");
             var fname = document.myform.fname.value;
             var lname = document.myform.lname.value;
+            var fstudy = document.myform.fstudy.value;
+            var title = document.myform.P1.value;
+            var gryr = document.myform.gryear.value;
+            // var proj = document.myform.projects.value;
+            // var email = document.myform.email.value;
+            // var ph = document.myform.phone.value;
+
             if (fname==null || lname==null || fname=="" || lname==""){
                 alert("Name fields can't be blank");
                 fname.focus();
                 return false;
             }
+            if(gryr==null || gryr==""){
+                alert("Graduation year field can't be blank");
+                title.focus();
+                return false;
+            }
+            if(title==null || title==""){
+                alert("Project title field can't be blank");
+                title.focus();
+                return false;
+            }
+            // if(proj==null || proj==""){
+            //     alert("Project description field can't be blank");
+            //     title.focus();
+            //     return false;
+            // }
+            // if(email==null || email==""){
+            //     alert("Email field can't be blank");
+            //     title.focus();
+            //     return false;
+            // }
+            // if(ph==null || ph==""){
+            //     alert("Phone field can't be blank");
+            //     title.focus();
+            //     return false;
+            // }
+            // else if(!ph.value.match("/^\d{10}$/")){
+            //     alert("Phone field should be 10 digit");
+            //     title.focus();
+            //     return false;
+            // }
+            // else if(!ph.value.match("/^\d{10}$/")){
+            //     alert("Phone number can't start with 0");
+            //     title.focus();
+            //     return false;
+            // }
+            
+            
+            
+
            
         }
     </script>
@@ -39,7 +85,7 @@
                 <br>
                 <br>
                 <label for="gryear">GraduationYear</label>
-                <input type="month" name="gryr" id="gryear" min="2010-01" max="2024-12" required>
+                <input type="month" name="gryr" id="gryear" min="2010-01" max="2024-12">
                 <br><br>
                 <label for="fstudy">Study Field</label>
                 <select name="field" id="fstudy">
@@ -52,8 +98,8 @@
                 <br>
                 <label for="P1">Title</label>
                 <input type="text" id="P1"><br><br>
-                <label for="desc">Project Description</label><br><br>
-                <textarea name='projectdesc' id='Projects 'rows="5" cols="50"></textarea>
+                <label for="projects">Project Description</label><br><br>
+                <textarea name='projectdesc' id='projects 'rows="5" cols="50"></textarea>
                 <br><br>
                 <label for="skills">Skills</label>
                 <select name="skills" id="'skills">

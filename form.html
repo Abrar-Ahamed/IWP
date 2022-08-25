@@ -12,14 +12,15 @@
        
     </head>
     <script>
+       
         function validateForm(){
             // alert("Hello!!");
             var fname = document.myform.fname.value;
             var lname = document.myform.lname.value;
-            var fstudy = document.myform.fstudy.value;
             var title = document.myform.P1.value;
             var gryr = document.myform.gryear.value;
-            // var proj = document.myform.projects.value;
+            var proj = document.getElementById("projects");
+            console.log(proj[0].value);
             // var email = document.myform.email.value;
             // var ph = document.myform.phone.value;
 
@@ -38,42 +39,59 @@
                 title.focus();
                 return false;
             }
-            // if(proj==null || proj==""){
-            //     alert("Project description field can't be blank");
-            //     title.focus();
-            //     return false;
-            // }
-            // if(email==null || email==""){
-            //     alert("Email field can't be blank");
-            //     title.focus();
-            //     return false;
-            // }
-            // if(ph==null || ph==""){
-            //     alert("Phone field can't be blank");
-            //     title.focus();
-            //     return false;
-            // }
-            // else if(!ph.value.match("/^\d{10}$/")){
-            //     alert("Phone field should be 10 digit");
-            //     title.focus();
-            //     return false;
-            // }
-            // else if(!ph.value.match("/^\d{10}$/")){
-            //     alert("Phone number can't start with 0");
-            //     title.focus();
-            //     return false;
-            // }
+            
+            if(proj==null || proj==""){
+                alert("Project description field can't be blank");
+                proj.focus();
+                return false;
+             }
+            //  if(email==null || email==""){
+            //      alert("Email field can't be blank");
+            //      email.focus();
+            //      return false;
+            //  }
+            //  if(ph==null || ph==""){
+            //      alert("Phone field can't be blank");
+            //      ph.focus();
+            //      return false;
+            //  }
+            //  else if(!ph.value.match(/^\d{10}$/)){
+            //      alert("Phone field should be 10 digit");
+            //      ph.focus();
+            //      return false;
+            //  }
+            //  else if(!ph.value.match(/^[0]\d{10}$/)){
+            //      alert("Phone number can't start with 0");
+            //      ph.focus();
+            //      return false;
+            //  }
             
             
-            
+        }
+
+        //function validate(){
 
            
+        //}
+
+        function nameCheck(){
+            var fn = document.myform.fname.value;
+            var ln = document.myform.lname.value;
+            var reg = /[A-Z]/;
+            if (!fn.value.match(reg) || !ln.value.match(reg)){
+                alert("name should start with Capital letter..");
+                fn.focus();
+              
+                return false;
+            }
         }
+
+
     </script>
    
     <body>
         <div class="card">
-            <form align="center" method="post" name="myform" action="#main" onsubmit = "return validateForm()">
+            <form align="center" method="post" name="myform" action="#main" onsubmit = " return validateForm();">
                 <label for="fname">First Name</label>
                 <input type="text" name="fname" id="fname">
                 <br><br>

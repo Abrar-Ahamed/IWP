@@ -12,6 +12,9 @@
        
     </head>
     <script>
+        function onlyLetters(str){
+            return /^[a-zA-Z]+$/.test(str);
+        }
        
         function validateForm(){
             // alert("Hello!!");
@@ -19,52 +22,65 @@
             var lname = document.myform.lname.value;
             var title = document.myform.P1.value;
             var gryr = document.myform.gryear.value;
+            var valph = /^\d{10}$/;
             var proj = document.getElementById("projects");
-            console.log(proj[0].value);
-            // var email = document.myform.email.value;
-            // var ph = document.myform.phone.value;
+            //console.log(proj[0].value);
+            var email = document.myform.email.value;
+            var ph = document.myform.phone.value;
 
             if (fname==null || lname==null || fname=="" || lname==""){
                 alert("Name fields can't be blank");
                 fname.focus();
                 return false;
+                
             }
-            if(gryr==null || gryr==""){
+            else if(onlyLetters(fname)==false || onlyLetters(lname)==false){
+                alert("name should contain only alphabets");
+                fname.focus();
+                return false;
+            }
+            
+            else if(gryr==null || gryr==""){
                 alert("Graduation year field can't be blank");
                 title.focus();
                 return false;
             }
-            if(title==null || title==""){
+            else if(title==null || title==""){
                 alert("Project title field can't be blank");
                 title.focus();
                 return false;
             }
             
-            if(proj==null || proj==""){
-                alert("Project description field can't be blank");
-                proj.focus();
-                return false;
+            // else if(proj==null || proj==""){
+            //     alert("Project description field can't be blank");
+            //     proj.focus();
+            //     return false;
+            //  }
+            else if(email==null || email==""){
+                 alert("Email field can't be blank");
+                 email.focus();
+                 return false;
              }
-            //  if(email==null || email==""){
-            //      alert("Email field can't be blank");
-            //      email.focus();
-            //      return false;
-            //  }
-            //  if(ph==null || ph==""){
-            //      alert("Phone field can't be blank");
-            //      ph.focus();
-            //      return false;
-            //  }
-            //  else if(!ph.value.match(/^\d{10}$/)){
-            //      alert("Phone field should be 10 digit");
-            //      ph.focus();
-            //      return false;
-            //  }
-            //  else if(!ph.value.match(/^[0]\d{10}$/)){
-            //      alert("Phone number can't start with 0");
-            //      ph.focus();
-            //      return false;
-            //  }
+
+            else if(email.substr(email.length-9,email.length)!="gmail.com" && email.substr(email.length-9,email.length)!="yahoo.com"){
+                alert("Invalid Email ID, Check domain and try again");
+                email.focus();
+                return false;
+            }
+
+            else if(ph==null || ph==""){
+                 alert("Phone field can't be blank");
+                 ph.focus();
+                 return false;
+             }
+            else if(ph.length!=10){
+                 alert("Phone field should be 10 digit");
+                 ph.focus();
+                 return false;
+                
+                 
+             }
+            
             
             
         }
@@ -93,10 +109,10 @@
         <div class="card">
             <form align="center" method="post" name="myform" action="#main" onsubmit = " return validateForm();">
                 <label for="fname">First Name</label>
-                <input type="text" name="fname" id="fname">
+                <input type="text" name="fname" id="fname" value="Abu">
                 <br><br>
                 <label for="lname">Last Name</label>
-                <input type="text" name="lname" id="lname">
+                <input type="text" name="lname" id="lname" value="Ahamed">
                 <br><br>
                 <label for="dob">Date of Birth</label>
                 <input type="date" id="'dob">
@@ -115,9 +131,9 @@
                 <h3>Projects</h3>
                 <br>
                 <label for="P1">Title</label>
-                <input type="text" id="P1"><br><br>
+                <input type="text" id="P1" value="Stock market Prediction"><br><br>
                 <label for="projects">Project Description</label><br><br>
-                <textarea name='projectdesc' id='projects 'rows="5" cols="50"></textarea>
+                <textarea name='projectdesc' id='projects 'rows="5" cols="50" value="Describe your project briefly"></textarea>
                 <br><br>
                 <label for="skills">Skills</label>
                 <select name="skills" id="'skills">

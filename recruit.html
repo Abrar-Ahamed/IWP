@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <!-- <tile>Job seeker's form</tile> -->
+    <head>
+        <meta charset="UTF-8">
+        <meta NAME="viewport" content= "width=device-width">
+        <link rel='stylesheet' href="form.css" type="text/css">
+        
+        <h1 style="color: black;">
+            RecruitMe
+        </h1>
+        
+       
+    </head>
+    <script>
+        function onlyLetters(str){
+            return /^[a-zA-Z]+$/.test(str);
+        }
+       
+        function validateForm(){
+            // alert("Hello!!");
+            var fname = document.myform.fname.value;
+            var lname = document.myform.lname.value;
+            var title = document.myform.P1.value;
+            var gryr = document.myform.gryear.value;
+            var valph = /^\d{10}$/;
+            //console.log(proj[0].value);
+            var email = document.myform.email.value;
+            var ph = document.myform.phone.value;
+
+            if (fname==null || lname==null || fname=="" || lname==""){
+                alert("Name fields can't be blank");
+                fname.focus();
+                return false;
+                
+            }
+            else if(onlyLetters(fname)==false || onlyLetters(lname)==false){
+                alert("name should contain only alphabets");
+                fname.focus();
+                return false;
+            }
+            
+            else if(gryr==null || gryr==""){
+                alert("Graduation year field can't be blank");
+                title.focus();
+                return false;
+            }
+            else if(title==null || title==""){
+                alert("Project title field can't be blank");
+                title.focus();
+                return false;
+            }
+            
+            else if(email==null || email==""){
+                 alert("Email field can't be blank");
+                 email.focus();
+                 return false;
+             }
+
+            else if(email.substr(email.length-9,email.length)!="gmail.com" && email.substr(email.length-9,email.length)!="yahoo.com"){
+                alert("Invalid Email ID, Check domain and try again");
+                email.focus();
+                return false;
+            }
+
+            else if(ph==null || ph==""){
+                 alert("Phone field can't be blank");
+                 ph.focus();
+                 return false;
+             }
+            else if(ph.length!=10){
+                 alert("Phone field should be 10 digit");
+                 ph.focus();
+                 return false;
+                
+                 
+             }
+            
+            
+            
+        }
+
+        //function validate(){
+
+           
+        //}
+
+        function nameCheck(){
+            var fn = document.myform.fname.value;
+            var ln = document.myform.lname.value;
+            var reg = /[A-Z]/;
+            if (!fn.value.match(reg) || !ln.value.match(reg)){
+                alert("name should start with Capital letter..");
+                fn.focus();
+              
+                return false;
+            }
+        }
+
+
+    </script>
+    
+      
+   
+    <body>
+        <div class="card">
+            <form align="center" method="post" name="myform" action="#main" onsubmit = " return validateForm();">
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" id="fname" value="Abu">
+                <br><br>
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname" id="lname" value="Ahamed">
+                <br><br>
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="'dob">
+                <br>
+                <br>
+                <label for="gryear">GraduationYear</label>
+                <input type="month" name="gryr" id="gryear" min="2010-01" max="2024-12">
+                <br><br>
+                <label for="fstudy">Study Field</label>
+                <select name="field" id="fstudy">
+                    <option>Computer Science</option>
+                    <option>Arts</option>
+                    <option>MBBS</option>
+                </select>
+                <br><br>
+                <label for="gpa">UnderGrad GPA</label>
+                <select name="field" id="gpa">
+                    <option>Below 6.0</option>
+                    <option>6.0-7.0</option>
+                    <option>7.0-8.0</option>
+                    <option>8.0-9.0</option>
+                    <option>Above 9.0</option>
+                </select>
+                <br><br>
+                <h3>Projects</h3>
+                <br>
+                <label for="P1">Title</label>
+                <input type="text" id="P1" value="Stock market Prediction"><br><br>
+                <label for="skills">Skills</label>
+                <select name="skills" id="'skills">
+                    <option>Python</option>
+                    <option>Data Science</option>
+                    <option>Cyber Security</option>
+                    <option>Surgeon</option>
+                    <option>Pediatrician</option>
+                    
+                </select>
+               
+                <br><br>
+                <h3>Contact Details</h3>
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+                <br><br>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone">
+                <br><br>
+                <input type="submit" value="Save" >
+
+            </form>
+        </div>
+        
+    </body>
+</html>

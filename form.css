@@ -1,16 +1,18 @@
 .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 15px 0 rgba(0,0,0,0.2);
     background-color: rgb(238, 238, 238);
     width: 440px;
     height: auto;
     padding: 35px;
+    padding-top: 50px;
     border-left: 50px;
     border-radius: 5px;
     top: 100px;
   }
 
 input[type=submit] {
+    box-shadow: 0 8px 15px 0 rgba(0,0,0,0.2);
     background-color: green;
     border-radius: 30%;
     padding: 10px 10px 10px 10px;

@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <meta NAME="viewport" content= "width=device-width">
         <link rel='stylesheet' href="form.css" type="text/css">
+
         
         <h1>Jobify</h1>
         
@@ -19,140 +20,89 @@
         function validateForm(){
             // alert("Hello!!");
             var fname = document.myform.fname.value;
-            var lname = document.myform.lname.value;
-            var title = document.myform.P1.value;
-            var gryr = document.myform.gryear.value;
-            var valph = /^\d{10}$/;
-            var proj = document.getElementById("projects");
-            //console.log(proj[0].value);
-            var email = document.myform.email.value;
-            var ph = document.myform.phone.value;
+            var age = document.myform.age.value;
+            var eid = document.myform.eid.value;
+            var sal = document.myform.sal.value;
 
-            if (fname==null || lname==null || fname=="" || lname==""){
+            if (fname==null || fname==""){
                 alert("Name fields can't be blank");
                 fname.focus();
                 return false;
                 
             }
-            else if(onlyLetters(fname)==false || onlyLetters(lname)==false){
+            if (eid==null){
+                alert("Employee ID field can't be blank");
+                eid.focus();
+                return false;
+                
+            }
+            else if (age==null){
+                alert("Age fields can't be blank");
+                age.focus();
+                return false;
+                
+            }
+            else if (sal==null){
+                alert("Salary field can't be blank");
+                sal.focus();
+                return false;
+                
+            }
+            else if(age > 50 || age < 22){
+                alert("Age should be between 22-50!");
+                fname.focus();
+                return false;
+            }
+            else if(onlyLetters(fname)==false){
                 alert("name should contain only alphabets");
                 fname.focus();
                 return false;
             }
             
-            else if(gryr==null || gryr==""){
-                alert("Graduation year field can't be blank");
-                title.focus();
-                return false;
-            }
-            else if(title==null || title==""){
-                alert("Project title field can't be blank");
-                title.focus();
-                return false;
-            }
-            
-            // else if(proj==null || proj==""){
-            //     alert("Project description field can't be blank");
-            //     proj.focus();
-            //     return false;
-            //  }
-            else if(email==null || email==""){
-                 alert("Email field can't be blank");
-                 email.focus();
-                 return false;
-             }
-
-            else if(email.substr(email.length-9,email.length)!="gmail.com" && email.substr(email.length-9,email.length)!="yahoo.com"){
-                alert("Invalid Email ID, Check domain and try again");
-                email.focus();
-                return false;
-            }
-
-            else if(ph==null || ph==""){
-                 alert("Phone field can't be blank");
-                 ph.focus();
-                 return false;
-             }
-            else if(ph.length!=10){
-                 alert("Phone field should be 10 digit");
-                 ph.focus();
-                 return false;
-                
-                 
-             }
             
             
             
         }
-
-        //function validate(){
-
-           
-        //}
-
-        function nameCheck(){
-            var fn = document.myform.fname.value;
-            var ln = document.myform.lname.value;
-            var reg = /[A-Z]/;
-            if (!fn.value.match(reg) || !ln.value.match(reg)){
-                alert("name should start with Capital letter..");
-                fn.focus();
-              
-                return false;
-            }
-        }
-
 
     </script>
    
     <body>
         <div class="card">
-            <form align="center" method="post" name="myform" action="#main" onsubmit = " return validateForm();">
-                <label for="fname">First Name</label>
+            <form align="center" method="post" name="myform" action="form.php" onsubmit = " return validateForm();">
+                
+                <label for="eid">Employee ID</label>
+                <input type = "number" name="eid" id="eid">
+                <br><br>
+                <label for="fname">Full Name</label>
                 <input type="text" name="fname" id="fname" value="Abu">
                 <br><br>
-                <label for="lname">Last Name</label>
-                <input type="text" name="lname" id="lname" value="Ahamed">
+                <label for="age">Age</label>
+                <input type = "number" name="age" id="age">
                 <br><br>
-                <label for="dob">Date of Birth</label>
-                <input type="date" id="'dob">
-                <br>
-                <br>
-                <label for="gryear">GraduationYear</label>
-                <input type="month" name="gryr" id="gryear" min="2010-01" max="2024-12">
-                <br><br>
-                <label for="fstudy">Study Field</label>
-                <select name="field" id="fstudy">
-                    <option>Computer Science</option>
-                    <option>Arts</option>
-                    <option>MBBS</option>
+                <label for="quals">Qualification</label>
+                <select name="quals" id="quals">
+                    <option>B.Tech Computer Science</option>
+                    <option>B.tech Mechanical</option>
+                    <option>B.Sc Agirculture</option>
                 </select>
                 <br><br>
-                <h3>Projects</h3>
-                <br>
-                <label for="P1">Title</label>
-                <input type="text" id="P1" value="Stock market Prediction"><br><br>
-                <label for="projects">Project Description</label><br><br>
-                <textarea name='projectdesc' id='projects 'rows="5" cols="50" value="Describe your project briefly"></textarea>
-                <br><br>
-                <label for="skills">Skills</label>
-                <select name="skills" id="'skills">
-                    <option>Python</option>
-                    <option>Data Science</option>
-                    <option>Cyber Security</option>
-                    <option>Surgeon</option>
-                    <option>Pediatrician</option>
+                
+                <label for="desig">Designation</label>
+                <select name="desig" id="desig">
+                    <option>Python Dveloper</option>
+                    <option>Data Scientist</option>
+                    <option>Senior Engineer</option>
+                    <option>Frontend Developer</option>
+                    <option>Backend Developer</option>
+                    <option>Full Stack Developer</option>
                     
                 </select>
                
                 <br><br>
-                <h3>Contact Details</h3>
-                <label for="email">Email:</label>
-                <input type="email" id="email">
-                <br><br>
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone">
-                <br><br>
+                <label for="sal">Salary</label>
+                <input type="number" id="sal" name="sal">
+                <br>
+                <br>
                 <input type="submit" value="Save" >
 
             </form>
